@@ -180,55 +180,80 @@
 //   }
 // }
 
+// import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
+
+// void main() {
+//   runApp(MyApplication());
+// }
+
+// class MyApplication extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext txt) {
+//     return MaterialApp(
+//       theme: ThemeData(
+//         appBarTheme: AppBarTheme(
+//           backgroundColor: Colors.cyan,
+//           foregroundColor: Colors.white,
+//         ),
+//         scaffoldBackgroundColor: Colors.blueGrey,
+//       ),
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("shopyfy"),
+//           centerTitle: true,
+//           actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
+//         ),
+//         body: Center(
+//           child: Stack(
+//             children: [
+//               Container(
+//                 padding: EdgeInsets.all(3),
+//                 decoration: BoxDecoration(
+//                   shape: BoxShape.circle,
+//                   border: Border.all(color: Colors.white, width: 3),
+//                 ),
+//                 child: CircleAvatar(
+//                   radius: 50,
+//                   backgroundImage: NetworkImage(
+//                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhKvQ0SFdYU2VOzZ5FMbp7P2YRYTy4yoh0rtnCoq392w&s=10",
+//                   ),
+//                 ),
+//               ),
+
+//               Positioned(
+//                 top: 0,
+//                 right: 0,
+//                 child: Icon(Icons.location_on, color: Colors.yellow, size: 30),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_first_flutter_project/Homepage.dart';
 
 void main() {
-  runApp(MyApplication());
+  runApp(MyApp());
 }
 
-class MyApplication extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext txt) {
+  Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Homepage(),
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.cyan,
           foregroundColor: Colors.white,
+          backgroundColor: Colors.deepOrange,
         ),
-        scaffoldBackgroundColor: Colors.blueGrey,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("shopyfy"),
-          centerTitle: true,
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
-        ),
-        body: Center(
-          child: Stack(
-            children: [
-              Container(
-                padding: EdgeInsets.all(3),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white, width: 3),
-                ),
-                child: CircleAvatar(
-                  radius: 50,
-                  backgroundImage: NetworkImage(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhKvQ0SFdYU2VOzZ5FMbp7P2YRYTy4yoh0rtnCoq392w&s=10",
-                  ),
-                ),
-              ),
-
-              Positioned(
-                top: 0,
-                right: 0,
-                child: Icon(Icons.location_on, color: Colors.yellow, size: 30),
-              ),
-            ],
-          ),
-        ),
+        scaffoldBackgroundColor: Colors.grey.shade500,
       ),
     );
   }
