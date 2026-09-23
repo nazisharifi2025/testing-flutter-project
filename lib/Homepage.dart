@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Homepage extends StatelessWidget {
-  List<String> _lists = [
-    "assets/citys/image1.jpg",
-    "assets/citys/image2.jpg",
-    "assets/citys/image3.jpg",
-    "assets/citys/image4.jpg",
-    "assets/citys/image5.jpg",
-    "assets/citys/image6.jpg",
+  List<dynamic> _lists = [
+    ["assets/citys/image1.jpg", "Dubay City"],
+    ["assets/citys/image2.jpg", "Sydney City"],
+    ["assets/citys/image3.jpg", "Kabul City"],
+    ["assets/citys/image4.jpg", "Paris City"],
+    ["assets/citys/image5.jpg", "Istanbul City"],
+    ["assets/citys/image6.jpg", "Landan City"],
   ];
   @override
   Widget build(BuildContext context) {
@@ -27,10 +27,10 @@ class Homepage extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadiusGeometry.all(Radius.circular(6)),
-                  child: Image.asset(_lists[index]),
+                  child: Image.asset(_lists[index][0]),
                 ),
                 SizedBox(height: 150),
-                // Text(data)
+                Text(_lists[index][1].toString()),
               ],
             ),
           );

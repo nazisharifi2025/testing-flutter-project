@@ -236,25 +236,62 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 import 'package:my_first_flutter_project/Homepage.dart';
+import 'package:my_first_flutter_project/MyPages/About.dart';
+import 'package:my_first_flutter_project/MyPages/MyHomePage.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  final GoRouter router = GoRouter(
+    // initialLocation: "/AboutPage",
+    routes: [
+      GoRoute(path: "/", builder: (context, state) => MyHomePage()),
+      GoRoute(path: "/AboutPage", builder: (context, state) => AboutPage()),
+    ],
+  );
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Homepage(),
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          foregroundColor: Colors.white,
-          backgroundColor: Colors.deepOrange,
-        ),
-        scaffoldBackgroundColor: Colors.grey.shade500,
-      ),
-    );
+    return MaterialApp.router(routerConfig: router);
   }
 }
+
+// class MyApp extends StatelessWidget {
+//   final GoRouter router = GoRouter(
+//     initialLocation: "/AboutPage",
+//     routes: [
+//       GoRoute(
+//         path: "/:name",
+//         builder: (context, state) {
+//           final name = state.pathParameters["name"];
+//           return MyHomePage(name: name!);
+//         },
+//       ),
+//       GoRoute(path: "/AboutPage", builder: (context, state) => AboutPage()),
+//     ],
+//   );
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp.router(routerConfig: router);
+//   }
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Homepage(),
+//       theme: ThemeData(
+//         appBarTheme: AppBarTheme(
+//           foregroundColor: Colors.white,
+//           backgroundColor: Colors.deepOrange,
+//         ),
+//         scaffoldBackgroundColor: Colors.grey.shade500,
+//       ),
+//     );
+//   }
+// }
